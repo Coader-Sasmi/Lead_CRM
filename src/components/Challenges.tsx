@@ -28,8 +28,8 @@ const Challenges = () => {
                                     </div>
 
                                     <div className="flex flex-col gap-1">
-                                        <div className="flex flex-wrap items-center gap-3">
-                                            <h3 className="font-semibold text-lg text-gray-900">
+                                        <div className="flex flex-wrap items-center md:gap-3 gap-1">
+                                            <h3 className="font-semibold text-sm md:text-lg text-gray-900">
                                                 {item.title}
                                             </h3>
 
@@ -59,7 +59,7 @@ const Challenges = () => {
                         <img src="/right.png" alt="With LeadCRM" className="w-full mb-6" />
                         <div className="flex items-center gap-4 mb-6">
                             <h3 className="text-2xl font-bold text-[#097737]">With LeadCRM</h3>
-                            <img src="/leadcrm.png" alt="leadcrm" className="w-8 h-8" />
+                            <img src="/Leadcrm.png" alt="leadcrm" className="w-8 h-8" />
                             <div className="text-[#097737]">4+ Hours/day Saved</div>
                         </div>
 
