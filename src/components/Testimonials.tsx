@@ -70,9 +70,9 @@ export default function Testimonials() {
             <div className="max-w-7xl mx-auto">
 
                 {/* Arrow buttons */}
-                <div className="flex justify-between items-center gap-3 mb-6 pr-8">
+                <div className="flex justify-between md:flex-row flex-col items-center gap-3 mb-6 pr-8">
                     {/* Heading */}
-                    <h2 className="text-[32px] font-[700] text-center text-[#100444]">
+                    <h2 className="text-[32px] font-[700] md:text-center text-[#100444]">
                         What people are saying about LeadCRM
                     </h2>
 

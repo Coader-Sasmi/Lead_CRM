@@ -12,9 +12,9 @@ const Challenges = () => {
                     </h2>
                 </div>
 
-                <div className="flex gap-8 items-center">
+                <div className="flex lg:flex-row flex-col gap-8 items-center">
                     {/* Left Card - Without LeadCRM */}
-                    <div className="lg:w-[45%] w-full bg-[#FFF7F8] p-8 rounded-xl ">
+                    <div className="lg:w-[45%] w-full bg-[#FFF7F8] lg:p-8 p-2 rounded-xl ">
                         <img src="/left.png" alt="Without LeadCRM" className="w-full mb-6" />
                         <div className="flex items-center justify-between mb-6">
                             <h3 className="text-2xl font-bold text-[#D24B68]">Without LeadCRM</h3>
@@ -55,7 +55,7 @@ const Challenges = () => {
                     </div>
 
                     {/* Right Card - With LeadCRM */}
-                    <div className="lg:w-[45%] w-full bg-white rounded-xl p-8 shadow-sm">
+                    <div className="lg:w-[45%] w-full bg-white rounded-xl lg:p-8 p-2 shadow-sm">
                         <img src="/right.png" alt="With LeadCRM" className="w-full mb-6" />
                         <div className="flex items-center gap-4 mb-6">
                             <h3 className="text-2xl font-bold text-[#097737]">With LeadCRM</h3>

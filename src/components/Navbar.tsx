@@ -1,5 +1,6 @@
 // components/Navbar.tsx
-import { useState } from 'react';
+import { LogIn } from "lucide-react";
+import { useState } from "react";
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,59 +11,39 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <div className="flex items-center">
-                        <img src="./Main_Logo.png" alt="main_logo" className='w-40 h-auto' />
+                        <img src="./Main_Logo.png" alt="main_logo" className="w-40 h-auto" />
                     </div>
 
                     {/* Desktop Navigation */}
-                    <div className="hidden md:flex items-center space-x-8">
-                        <div className="relative group">
-                            <button className="text-gray-700 hover:text-cyan-600 transition flex items-center space-x-1">
-                                <span className='font-semibold'>Product</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
-                                </svg>
+                    <div className="hidden lg:flex items-center space-x-8">
+                        {["Product", "Pricing", "Resources", "Company"].map((item) => (
+                            <button
+                                key={item}
+                                className="text-gray-700 hover:text-cyan-600 transition font-semibold flex items-center gap-1"
+                            >
+                                {item}
+                                {item !== "Pricing" && (
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                )}
                             </button>
-                        </div>
-
-                        <div className="relative group">
-                            <button className="text-gray-700 hover:text-cyan-600 transition flex items-center space-x-1">
-                                <span className='font-semibold'>Pricing</span>
-                            </button>
-                        </div>
-
-                        <div className="relative group">
-                            <button className="text-gray-700 hover:text-cyan-600 transition flex items-center space-x-1">
-                                <span className='font-semibold'>Resources</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div className="relative group">
-                            <button className="text-gray-700 hover:text-cyan-600 transition flex items-center space-x-1">
-                                <span className='font-semibold'>Company</span>
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={4} d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-                        </div>
+                        ))}
                     </div>
 
-                    {/* CTA Buttons */}
-                    <div className="hidden md:flex items-center space-x-4">
-                        <button className="px-5 py-2 bg-[#32b6d4] text-white rounded-lg hover:bg-cyan-600 transition font-medium text-sm">
+                    {/* Desktop CTA */}
+                    <div className="hidden lg:flex items-center space-x-4">
+                        <button className="px-5 py-2 w-fit bg-[#32b6d4] text-white rounded-lg hover:bg-cyan-600 transition text-sm font-medium">
                             Get Your Free Account
                         </button>
-                        <button className="px-5 py-2 border border-[#32b6d4] text-[#32b6d4] rounded-lg hover:bg-gray-50 transition font-medium text-sm flex items-center gap-2">
-                            <span><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#32b6d4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-log-in-icon lucide-log-in"><path d="m10 17 5-5-5-5" /><path d="M15 12H3" /><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" /></svg></span>
-                            Login
+                        <button className="px-5 py-2 w-fit border flex items-center gap-2 border-[#32b6d4] text-[#32b6d4] rounded-lg hover:bg-gray-50 transition text-sm font-medium">
+                            <LogIn size={16} className="text-[#32b6d4]" />Login
                         </button>
                     </div>
 
-                    {/* Mobile menu button */}
+                    {/* Mobile Toggle */}
                     <button
-                        className="md:hidden p-2"
+                        className="lg:hidden p-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -74,24 +55,28 @@ const Navbar = () => {
                         </svg>
                     </button>
                 </div>
+            </div>
 
-                {/* Mobile Menu */}
-                {isMenuOpen && (
-                    <div className="md:hidden py-4 space-y-3">
-                        <a href="#features" className="block text-gray-700 hover:text-cyan-600 transition">Features</a>
-                        <a href="#pricing" className="block text-gray-700 hover:text-cyan-600 transition">Pricing</a>
-                        <a href="#resources" className="block text-gray-700 hover:text-cyan-600 transition">Resources</a>
-                        <a href="#company" className="block text-gray-700 hover:text-cyan-600 transition">Company</a>
-                        <div className="pt-4 space-y-2">
-                            <button className="w-full px-5 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600 transition font-medium text-sm">
-                                Try LeadCRM-IO
-                            </button>
-                            <button className="w-full px-5 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition font-medium text-sm">
-                                Login
-                            </button>
-                        </div>
+            {/* ✅ MOBILE MENU (ABSOLUTE OVERLAY) */}
+            <div
+                className={`lg:hidden absolute top-16 left-0 w-full bg-white shadow-lg transition-all duration-300 z-40
+        ${isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+            >
+                <div className="px-6 py-6 space-y-4">
+                    <a className="block font-medium text-gray-700 hover:text-cyan-600">Product</a>
+                    <a className="block font-medium text-gray-700 hover:text-cyan-600">Pricing</a>
+                    <a className="block font-medium text-gray-700 hover:text-cyan-600">Resources</a>
+                    <a className="block font-medium text-gray-700 hover:text-cyan-600">Company</a>
+
+                    <div className="pt-4 flex flex-col space-y-3">
+                        <button className="w-fit px-5 py-2 bg-[#32b6d4] text-white rounded-lg">
+                            Get Your Free Account
+                        </button>
+                        <button className="w-fit px-5 py-2 border border-[#32b6d4] rounded-lg flex items-center gap-2 text-[#32b6d4]">
+                            <LogIn size={16} className="text-[#32b6d4]" /> Login
+                        </button>
                     </div>
-                )}
+                </div>
             </div>
         </nav>
     );
